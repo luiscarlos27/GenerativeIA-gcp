@@ -25,7 +25,7 @@ for i, d in enumerate(documents):
   collection.add(
     ids=[str(i)],
     embeddings=[embedding],
-    documents=[d]locals()
+    documents=[d]
   )
 
   # an example prompt
