@@ -10,7 +10,7 @@ import pandas as pd
 df = pd.read_csv('consumo.csv')
 
 # Dividir el DataFrame en trozos más pequeños (ajustar según el tamaño deseado)
-chunksize = 100
+chunksize = 500
 chunks = [df[i:i+chunksize] for i in range(0, len(df), chunksize)]
 
 # Crear una colección en ChromaDB
