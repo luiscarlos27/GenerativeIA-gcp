@@ -18,7 +18,7 @@ client = chromadb.Client()
 collection = client.create_collection(name="docs")
 
 # Procesar cada chunk
-for i, chunk in chunks:
+for i, chunk in enumerate(chunks):
     # Convertir el chunk en una lista de diccionarios
     data = chunk.to_dict(orient='records')
 
@@ -41,9 +41,9 @@ for i, chunk in chunks:
     )
     embedding = response["embedding"]
 
-    # Agregar el chunk y su embedding a ChromaDB
+    # Agregar el chunk y su embedding a ChromaDB con IDs únicos
     collection.add(
-        ids=[str(i)],
+        ids=[f"chunk_{i}"],  # Crear IDs únicos para cada chunk
         embeddings=[embedding],
         documents=[data]
     )
