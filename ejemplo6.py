@@ -5,14 +5,13 @@ import ollama
 import chromadb
 import csv
 import pandas as pd
-import numpy as np
 
 # Leer el archivo CSV y convertirlo en un DataFrame
 df = pd.read_csv('consumo.csv')
 
 # Dividir el DataFrame en trozos más pequeños (ajustar según el tamaño deseado)
 chunksize = 100
-chunks = np.array_split(df, len(df) // chunksize)
+chunks = [df[i:i+chunksize] for i in range(0, len(df), chunksize)]
 
 # Crear una colección en ChromaDB
 client = chromadb.Client()
