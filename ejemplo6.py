@@ -13,8 +13,9 @@ df = pd.read_csv('consumo.csv')
 chunksize = 25
 chunks = [df[i:i+chunksize] for i in range(0, len(df), chunksize)]
 print("cantidad de documentos")
+print("")
 print(chunks)
-
+print("")
 # Crear una colección en ChromaDB
 client = chromadb.Client()
 collection = client.create_collection(name="docs")
