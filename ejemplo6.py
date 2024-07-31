@@ -10,7 +10,7 @@ import pandas as pd
 df = pd.read_csv('consumo.csv')
 
 # Dividir el DataFrame en trozos más pequeños (ajustar según el tamaño deseado)
-chunksize = 500
+chunksize = 300
 chunks = [df[i:i+chunksize] for i in range(0, len(df), chunksize)]
 
 # Crear una colección en ChromaDB
@@ -49,7 +49,7 @@ for i, chunk in enumerate(chunks):
         prompt=prompt,
         model="phi3:mini",
         options={
-            "temperature": 0.4
+            "temperature": 0.7
         }
     )
     embedding = response["embedding"]
