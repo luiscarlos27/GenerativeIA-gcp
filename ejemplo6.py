@@ -47,7 +47,10 @@ for i, chunk in enumerate(chunks):
     # Obtener la embedding del prompt
     response = ollama.embeddings(
         prompt=prompt,
-        model="phi3:mini"
+        model="phi3:mini",
+        options={
+            "temperature": 0.4
+        }
     )
     embedding = response["embedding"]
 
