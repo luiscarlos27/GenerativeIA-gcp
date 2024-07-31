@@ -74,4 +74,4 @@ for i, chunk in enumerate(chunks):
         prompt=f"Usando la siguiente data: {data}. Responde este enunciado: {prompt}"
     )
 
-    print('\n'.output['response'])
+    print(output['response'])
