@@ -29,12 +29,15 @@ for i, d in enumerate(documents):
   )
 
   # an example prompt
-  prompt = "Necesito informacion sobre el IPC de Guatemala del 2024?"
+  prompt = "Necesito informacion sobre el IPC de marzo 2024 de Guatemala y su variacion interanual?"
 
   # generate an embedding for the prompt and retrieve the most relevant doc
   response = ollama.embeddings(
     prompt=prompt,
-    model="phi3:mini"
+    model="phi3:mini",
+    options={
+      "temperature": 0
+    }
   )
   results = collection.query(
     query_embeddings=[response["embedding"]],
